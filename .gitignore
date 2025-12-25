@@ -1,6 +1,10 @@
 # Claude Code settings
 .claude/
 
+# Firebase
+.firebase/
+.firebaserc
+
 # OS generated files
 .DS_Store
 Thumbs.db
@@ -22,3 +26,8 @@ node_modules/
 # Optional: Future build outputs
 dist/
 build/
+
+# Screenshots and images (temporary)
+*.png
+*.jpg
+*.jpeg
