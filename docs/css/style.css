@@ -9,10 +9,12 @@ body {
   font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
+  min-height: 100dvh; /* 動的ビューポート高さ（モバイルブラウザUI対応） */
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 /* ユーティリティクラス */
@@ -337,10 +339,14 @@ body {
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   body {
-    padding: 10px;
+    padding: 5px;
+    padding-top: max(5px, env(safe-area-inset-top));
+    padding-bottom: max(5px, env(safe-area-inset-bottom));
     align-items: flex-start;
     min-height: 100vh;
+    min-height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -438,16 +444,19 @@ body {
 
 @media (max-width: 480px) {
   body {
-    padding: 5px;
+    padding: 3px;
+    padding-top: max(3px, env(safe-area-inset-top));
+    padding-bottom: max(3px, env(safe-area-inset-bottom));
   }
 
   #game-container {
-    gap: 5px;
+    gap: 3px;
+    width: 100%;
   }
 
   #main-canvas {
-    width: 180px !important;
-    height: 340px !important;
+    width: 170px !important;
+    height: 320px !important;
   }
 
   #main-area {
@@ -459,10 +468,10 @@ body {
     width: 100%;
     max-width: 100%;
     min-width: auto;
-    padding: 5px 8px;
+    padding: 3px 5px;
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 6px;
     justify-content: center;
     align-items: center;
   }
@@ -477,40 +486,40 @@ body {
   }
 
   #side-panel h3 {
-    font-size: 11px;
-    margin-bottom: 3px;
+    font-size: 10px;
+    margin-bottom: 2px;
   }
 
   #next-canvas {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
 
   /* スコアボード */
   #scoreboard {
-    padding: 3px 8px;
+    padding: 2px 6px;
     margin-bottom: 0;
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
   }
 
   .score-item {
     margin: 0;
-    padding: 2px 0;
+    padding: 1px 0;
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
   }
 
   .label {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .value {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .screen {
@@ -529,18 +538,18 @@ body {
 
   /* モバイルでボタンサイズ調整 */
   #touch-controls {
-    padding: 5px;
-    gap: 4px;
+    padding: 3px;
+    gap: 3px;
     margin-top: 0;
   }
 
   .control-row {
-    gap: 4px;
+    gap: 3px;
   }
 
   .control-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 22px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
   }
 }
