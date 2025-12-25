@@ -82,6 +82,19 @@ body {
   align-items: flex-start;
 }
 
+/* デスクトップ: サイドパネルを右に配置 */
+#side-panel {
+  order: 2;
+}
+
+#main-area {
+  order: 1;
+}
+
+#touch-controls {
+  order: 3;
+}
+
 /* メインエリア */
 #main-area {
   position: relative;
@@ -339,11 +352,21 @@ body {
     width: 100%;
   }
 
+  /* モバイル: 上からスコア、ゲーム、コントロール */
   #side-panel {
+    order: 1;
     width: 100%;
     max-width: 300px;
     padding: 15px;
     margin-top: 0;
+  }
+
+  #main-area {
+    order: 2;
+  }
+
+  #touch-controls {
+    order: 3;
   }
 
   #side-panel h3, #side-panel h4 {
@@ -415,7 +438,7 @@ body {
 
 @media (max-width: 480px) {
   body {
-    padding: 5px 5px 0;
+    padding: 5px;
   }
 
   #game-container {
@@ -424,56 +447,70 @@ body {
 
   #main-canvas {
     width: 180px !important;
-    height: 360px !important;
+    height: 340px !important;
   }
 
   #main-area {
     margin-bottom: 0;
   }
 
+  /* サイドパネルを横並びに */
   #side-panel {
-    max-width: 220px;
-    padding: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+    padding: 5px 8px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 8px;
     justify-content: center;
+    align-items: center;
   }
 
+  /* NEXTブロック部分 */
   #next-block-container {
     margin-bottom: 0;
     flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #side-panel h3 {
-    font-size: 12px;
-    margin-bottom: 5px;
+    font-size: 11px;
+    margin-bottom: 3px;
   }
 
   #next-canvas {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
   }
 
+  /* スコアボード */
   #scoreboard {
-    padding: 5px 8px;
+    padding: 3px 8px;
     margin-bottom: 0;
-    flex: 1 1 auto;
-    min-width: 140px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .score-item {
-    margin: 3px 0;
-    padding: 3px 0;
+    margin: 0;
+    padding: 2px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: center;
   }
 
   .label {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .value {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .screen {
@@ -494,7 +531,7 @@ body {
   #touch-controls {
     padding: 5px;
     gap: 4px;
-    margin-top: 5px;
+    margin-top: 0;
   }
 
   .control-row {

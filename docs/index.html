@@ -21,14 +21,7 @@
 
   <!-- ゲーム画面 -->
   <div id="game-container" class="hidden">
-    <div id="main-area">
-      <canvas id="main-canvas" width="300" height="600"></canvas>
-      <div id="pause-overlay" class="hidden">
-        <h2>PAUSED</h2>
-        <p>Press P to resume</p>
-      </div>
-    </div>
-
+    <!-- ネクスト・スコアパネル（モバイルでは最上部） -->
     <div id="side-panel">
       <!-- ネクストブロック -->
       <div id="next-block-container">
@@ -65,7 +58,16 @@
       </div>
     </div>
 
-    <!-- モバイル用タッチコントロール -->
+    <!-- ゲーム盤面（モバイルでは中央） -->
+    <div id="main-area">
+      <canvas id="main-canvas" width="300" height="600"></canvas>
+      <div id="pause-overlay" class="hidden">
+        <h2>PAUSED</h2>
+        <p>Press P to resume</p>
+      </div>
+    </div>
+
+    <!-- モバイル用タッチコントロール（モバイルでは最下部） -->
     <div id="touch-controls">
       <div class="control-row">
         <button id="pause-btn" class="control-btn secondary-btn" aria-label="Pause">⏸</button>
