@@ -258,6 +258,69 @@ body {
   text-shadow: 0 0 20px rgba(0, 240, 240, 0.8);
 }
 
+/* モバイルタッチコントロール */
+#touch-controls {
+  display: none; /* デフォルトは非表示（デスクトップ） */
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.control-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.control-btn {
+  width: 70px;
+  height: 70px;
+  font-size: 32px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.direction-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+  color: #2d3436;
+}
+
+/* PC/モバイル表示切り替え */
+.mobile-controls {
+  display: none;
+}
+
+.desktop-controls {
+  display: block;
+}
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   #game-container {
@@ -278,6 +341,25 @@ body {
   .screen h1 {
     font-size: 48px;
   }
+
+  /* モバイルでタッチコントロールを表示 */
+  #touch-controls {
+    display: flex;
+  }
+
+  /* PC/モバイル表示切り替え */
+  .mobile-controls {
+    display: block;
+  }
+
+  .desktop-controls {
+    display: none;
+  }
+
+  /* コントロールガイドを非表示（タッチコントロールがあるため） */
+  #controls-guide {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -293,5 +375,12 @@ body {
   .btn {
     padding: 12px 30px;
     font-size: 16px;
+  }
+
+  /* モバイルでボタンサイズ調整 */
+  .control-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
   }
 }

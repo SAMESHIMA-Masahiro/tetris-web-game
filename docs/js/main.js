@@ -273,10 +273,80 @@ function handleKeyDown(event) {
   }
 }
 
+/**
+ * タッチコントロールのイベントハンドラーを設定
+ */
+function setupTouchControls() {
+  const leftBtn = document.getElementById('left-btn');
+  const rightBtn = document.getElementById('right-btn');
+  const rotateBtn = document.getElementById('rotate-btn');
+  const downBtn = document.getElementById('down-btn');
+  const dropBtn = document.getElementById('drop-btn');
+  const pauseBtn = document.getElementById('pause-btn');
+
+  // タッチイベントとクリックイベント両方に対応
+  const addButtonHandler = (button, handler) => {
+    if (!button) return;
+
+    // タッチイベント
+    button.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      if (game.gameState === GAME_STATES.PLAYING ||
+          (game.gameState === GAME_STATES.PAUSED && button === pauseBtn)) {
+        handler();
+      }
+    });
+
+    // クリックイベント（フォールバック）
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (game.gameState === GAME_STATES.PLAYING ||
+          (game.gameState === GAME_STATES.PAUSED && button === pauseBtn)) {
+        handler();
+      }
+    });
+  };
+
+  // 各ボタンにハンドラーを設定
+  addButtonHandler(leftBtn, () => {
+    game.moveLeft();
+    render();
+  });
+
+  addButtonHandler(rightBtn, () => {
+    game.moveRight();
+    render();
+  });
+
+  addButtonHandler(rotateBtn, () => {
+    game.rotate();
+    render();
+  });
+
+  addButtonHandler(downBtn, () => {
+    game.drop();
+    game.dropCounter = 0;
+    render();
+  });
+
+  addButtonHandler(dropBtn, () => {
+    game.hardDrop();
+    render();
+  });
+
+  addButtonHandler(pauseBtn, () => {
+    game.pause();
+    render();
+  });
+}
+
 // イベントリスナーの設定
 startButton.addEventListener('click', initGame);
 restartButton.addEventListener('click', restartGame);
 document.addEventListener('keydown', handleKeyDown);
+
+// タッチコントロールを設定
+setupTouchControls();
 
 // 初期画面を表示
 showStartScreen();

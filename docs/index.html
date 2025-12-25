@@ -13,8 +13,9 @@
     <button id="start-button" class="btn">Start Game</button>
     <div id="instructions">
       <h3>操作方法</h3>
-      <p>←/→: 移動 | ↑: 回転 | ↓: ソフトドロップ</p>
-      <p>スペース: ハードドロップ | P: 一時停止</p>
+      <p class="desktop-controls">PC: ←/→: 移動 | ↑: 回転 | ↓: ソフトドロップ</p>
+      <p class="desktop-controls">スペース: ハードドロップ | P: 一時停止</p>
+      <p class="mobile-controls">スマホ: 画面下の操作ボタンを使用</p>
     </div>
   </div>
 
@@ -61,6 +62,22 @@
           <li>Space: Hard Drop</li>
           <li>P: Pause</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- モバイル用タッチコントロール -->
+    <div id="touch-controls">
+      <div class="control-row">
+        <button id="pause-btn" class="control-btn secondary-btn" aria-label="Pause">⏸</button>
+      </div>
+      <div class="control-row">
+        <button id="rotate-btn" class="control-btn action-btn" aria-label="Rotate">🔄</button>
+        <button id="drop-btn" class="control-btn action-btn" aria-label="Hard Drop">⬇️</button>
+      </div>
+      <div class="control-row">
+        <button id="left-btn" class="control-btn direction-btn" aria-label="Move Left">⬅️</button>
+        <button id="down-btn" class="control-btn direction-btn" aria-label="Soft Drop">🔽</button>
+        <button id="right-btn" class="control-btn direction-btn" aria-label="Move Right">➡️</button>
       </div>
     </div>
   </div>
