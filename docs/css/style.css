@@ -323,15 +323,59 @@ body {
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
+  body {
+    padding: 10px;
+    align-items: flex-start;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   #game-container {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    width: 100%;
   }
 
   #side-panel {
     width: 100%;
     max-width: 300px;
-    margin-top: 20px;
+    padding: 15px;
+    margin-top: 0;
+  }
+
+  #side-panel h3, #side-panel h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  #next-canvas {
+    width: 80px;
+    height: 80px;
+  }
+
+  #next-block-container {
+    margin-bottom: 15px;
+  }
+
+  #scoreboard {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .score-item {
+    margin: 8px 0;
+    padding: 5px 0;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 22px;
   }
 
   .screen {
@@ -345,6 +389,13 @@ body {
   /* モバイルでタッチコントロールを表示 */
   #touch-controls {
     display: flex;
+    padding: 10px;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .control-row {
+    gap: 8px;
   }
 
   /* PC/モバイル表示切り替え */
@@ -363,24 +414,96 @@ body {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: 5px 5px 0;
+  }
+
+  #game-container {
+    gap: 5px;
+  }
+
   #main-canvas {
-    width: 250px;
-    height: 500px;
+    width: 180px !important;
+    height: 360px !important;
   }
 
-  .screen h1 {
-    font-size: 36px;
+  #main-area {
+    margin-bottom: 0;
   }
 
-  .btn {
-    padding: 12px 30px;
+  #side-panel {
+    max-width: 220px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #next-block-container {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+  }
+
+  #side-panel h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  #next-canvas {
+    width: 60px;
+    height: 60px;
+  }
+
+  #scoreboard {
+    padding: 5px 8px;
+    margin-bottom: 0;
+    flex: 1 1 auto;
+    min-width: 140px;
+  }
+
+  .score-item {
+    margin: 3px 0;
+    padding: 3px 0;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .value {
     font-size: 16px;
   }
 
-  /* モバイルでボタンサイズ調整 */
-  .control-btn {
-    width: 60px;
-    height: 60px;
+  .screen {
+    padding: 15px 10px;
+  }
+
+  .screen h1 {
     font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  /* モバイルでボタンサイズ調整 */
+  #touch-controls {
+    padding: 5px;
+    gap: 4px;
+    margin-top: 5px;
+  }
+
+  .control-row {
+    gap: 4px;
+  }
+
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
   }
 }
